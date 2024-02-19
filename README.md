@@ -1,3 +1,8 @@
+# Chorus Lapilli
+
+This project is a version of tic-tac-toe called Chorus Lapilli, build on React!
+Read chorus-lapilli.txt for rule information.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
