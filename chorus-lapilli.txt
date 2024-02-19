@@ -1,0 +1,80 @@
+1. First removed jumpTo function and list of "goto move #"
+Created function restartGame which resets const vars to original state
+	called when "RESTART GAME" button is clicked
+
+2. Add param moveNum to Board, updated and handled in Game()
+   set to currentMove
+
+3. Add condition in handlePlay (moveNum < 6)
+   play like regular tic tac toe
+
+4. ELSE (chorus-lapilli rules)
+a. make var squareSelected (for now on we need player to make two clicks to move. also make var selectedSquare to keep track of first selection
+b. first check is squareSelected is true
+c. if False:
+   user must click on own piece, once they select a non-null piece:
+   	set squareSelected = true, selectedSquare = i
+
+d. if True (on second click):
+   next selection depends on middle square, check to see if user owns middle
+   first check that new selection is adjacent to old selection in isAdjacent(i, j) //not written yet
+   if player owns middle:
+      check that they either:
+      vacate square or WIN
+
+e. In order to check that they win, make copy of nextSquares, update it as if they did move, now plug copy into calculateWinner
+
+f. After handing everything, set nextSquares[selectedSquare] = null since we moved off of it
+   set nextSquares[i] = currentPiece
+
+5. isAdjacent(i, j) returns true if i and j are adjacent
+hard coded, no real shortcuts (recall board looks like):
+
+0 | 1 | 2
+---------
+3 | 4 | 5
+---------
+6 | 7 | 8
+
+so isAdjacent(0,3)=isAdjacent(4,5) = true
+but isAdjacent(2,3) = false
+
+
+Overall: How To Play
+First 6 moves - same as tic tac toe
+After 6th move, click on piece you want to move, then click where you want to move
+If invalid move, click a new piece to move then click a valid adjacent space!
+Program follows the rules/restrictions of chorus lapilli
+
+
+PS C:\Users\ryanb\onedrive\desktop\cs\assign3> npm pack --dry-run
+npm notice 
+npm notice 📦  assign3@0.1.0
+npm notice === Tarball Contents === 
+npm notice 3.4kB README.md
+npm notice 810B  package.json
+npm notice 3.9kB public/favicon.ico    
+npm notice 1.7kB public/index.html     
+npm notice 5.3kB public/logo192.png    
+npm notice 9.7kB public/logo512.png    
+npm notice 492B  public/manifest.json  
+npm notice 67B   public/robots.txt     
+npm notice 960B  src/App.css
+npm notice 4.9kB src/App.js
+npm notice 246B  src/App.test.js       
+npm notice 366B  src/index.css
+npm notice 535B  src/index.js
+npm notice 2.6kB src/logo.svg
+npm notice 362B  src/reportWebVitals.js
+npm notice 241B  src/setupTests.js     
+npm notice === Tarball Details === 
+npm notice name:          assign3
+npm notice version:       0.1.0
+npm notice filename:      assign3-0.1.0.tgz
+npm notice package size:  26.3 kB
+npm notice unpacked size: 35.6 kB
+npm notice shasum:        88c98db38c49e1e7b3d8fcc83467faaed8f7d2b3
+npm notice integrity:     sha512-Fs5W0EIKldnKk[...]+Vq2rOWfq0KtQ==
+npm notice total files:   16
+npm notice 
+assign3-0.1.0.tgz
