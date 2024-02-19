@@ -42,9 +42,9 @@ but isAdjacent(2,3) = false
 
 Overall: How To Play
 First 6 moves - same as tic tac toe
-After 6th move, click on piece you want to move, then click where you want to move
+After 6th move, click on piece you want to move, then click on an adjacent square where you want to move that piece.
 If invalid move, click a new piece to move then click a valid adjacent space!
-Program follows the rules/restrictions of chorus lapilli
+Game continues until one player gets three pieces in a row!
 
 
 PS C:\Users\ryanb\onedrive\desktop\cs\assign3> npm pack --dry-run
